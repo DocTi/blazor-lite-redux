@@ -3,6 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <Version>0.1.0</Version>
+    <Authors>DocTi</Authors>
+    <Company>DocTi</Company>
+    <PackageProjectUrl>https://github.com/DocTi/blazor-lite-redux</PackageProjectUrl>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Product>Lite Redux</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon />
+    <PackageIconUrl>https://hsto.org/webt/vj/qj/6l/vjqj6ljbx36qtu-bskctgceog3u.png</PackageIconUrl>
   </PropertyGroup>
 
 
