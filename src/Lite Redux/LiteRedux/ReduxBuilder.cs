@@ -17,10 +17,6 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IStateMapper>(provider => provider.GetService<StateMapper<TState>>());
             services.AddScoped<IStateMapper<TState>>(provider => provider.GetService<StateMapper<TState>>());
 
-            //services.AddScoped<IReducer<TState>, TImlementation>();
-
-            //services.AddScoped<ITrigger, TImlementation>();
-
             return this;
         }
     }

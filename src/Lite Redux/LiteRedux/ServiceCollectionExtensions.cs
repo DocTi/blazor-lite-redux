@@ -40,11 +40,16 @@ namespace Microsoft.Extensions.DependencyInjection
 
         private static void ScanTriggers(this IServiceCollection services, IEnumerable<TypeInfo> types)
         {
-            IEnumerable<TypeInfo> triggers = types.Where(x => x.ImplementsGenericInterface(typeof(ITrigger)));
+            IEnumerable<TypeInfo> triggers = types.Where(x => x.ImplementsInterface(typeof(ITrigger)));
             foreach (var trigger in triggers)
             {
                 services.AddScoped(typeof(ITrigger), trigger);
             }
+        }
+
+        private static bool ImplementsInterface(this Type type, Type interfaceType)
+        {
+            return type.GetTypeInfo().ImplementedInterfaces.Any(i => i == interfaceType);
         }
 
         private static bool ImplementsGenericInterface(this Type type, Type interfaceType)
