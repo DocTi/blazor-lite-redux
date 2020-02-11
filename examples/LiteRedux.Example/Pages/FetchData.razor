@@ -1,13 +1,14 @@
 ﻿@page "/fetchdata"
 
 @using LiteRedux.Example.Data
+@inherits ReduxComponent<FetchDataState>
 @inject WeatherForecastService ForecastService
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
 
-@if (forecasts == null)
+@if (State.Value.IsLoading)
 {
     <p><em>Loading...</em></p>
 }
@@ -23,7 +24,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var forecast in State.Value.Data)
             {
                 <tr>
                     <td>@forecast.Date.ToShortDateString()</td>
@@ -39,8 +40,10 @@ else
 @code {
     private WeatherForecast[] forecasts;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        base.OnInitialized();
+
+        Store.Dispatch(new FetchAction(DateTime.Now));
     }
 }

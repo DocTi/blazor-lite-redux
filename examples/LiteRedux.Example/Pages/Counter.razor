@@ -1,8 +1,10 @@
 ﻿@page "/counter"
 
+@inherits ReduxComponent<CounterState>
+
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @State.Value.Value</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
@@ -11,6 +13,6 @@
 
     private void IncrementCount()
     {
-        currentCount++;
+        Store.Dispatch(new IncrementAction());
     }
 }

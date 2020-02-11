@@ -25,7 +25,8 @@ namespace LiteRedux.Example
             services.AddSingleton<WeatherForecastService>();
 
             services.AddLiteRedux(typeof(CounterState).Assembly)
-                .AddState<CounterState>();
+                .AddState<CounterState>()
+                .AddState<FetchDataState>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
