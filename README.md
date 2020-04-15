@@ -94,7 +94,3 @@ public class FetchTrigger : Trigger<FetchAction>
   }
 }
 ```
-
-## Is coming
-1. Unit tests
-2. Redux devtools
